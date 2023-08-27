@@ -45,7 +45,7 @@ class OngoingController {
             const ongoing = await OngoingService.update(req.body, file)
             return res.json(ongoing)
         } catch (e) {
-            res.status(500).json(e);
+            res.json(500, {message: e});
         }
     }
 

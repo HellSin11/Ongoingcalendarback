@@ -33,7 +33,9 @@ class UserService {
 
 
     async login (email, password) {
+        console.log('Шукаю користувача з ',email,' !!!!');
         const user = await User.findOne({email});
+        console.log('user = ', user)
         if (!user) {
             throw new Error('User with this email was not found')
         }
