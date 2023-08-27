@@ -15,7 +15,7 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: 'http://localhost:3000',
+  origin: 'http://ongoings.adaptable.app',
   optionsSuccessStatus: 200
 }));
 app.use(express.json());
