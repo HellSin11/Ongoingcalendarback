@@ -13,6 +13,8 @@ class authController {
             res.cookie('refreshToken', userData.refreshToken, {
                 maxAge: 30* 24 * 60 * 60 * 1000, httpOnly: true
             })
+            console.log('Registration')
+            console.log(res.cookies)
             return res.json(userData)
         }
         catch (e) {
@@ -26,9 +28,11 @@ class authController {
             const {email, password} = req.body;
             const userData = await UserService.login(email, password);
             res.cookie('refreshToken', userData.refreshToken, {
-                maxAge: 30* 24 * 60 * 60 * 1000
+                maxAge: 30* 24 * 60 * 60 * 1000, httpOnly: true
             })
-            return res.json(200, userData)
+            console.log('Login')
+            console.log(res)
+            return res.json(userData)
         } catch (e) {
             console.log(e);
             res.json(400, {message: e.message});
